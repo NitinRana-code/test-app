@@ -6,10 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@master
-      - run: ls -la;pwd
-      - run: docker build -t test-app .
       - run: docker login -u docker4nitin -p dockertest123
-      - run: docker push docker4nitin/test-app 
+      - run: docker build -t docker4nitin:test-app .
+      - run: docker push docker4nitin:test-app 
     
   deploy:
     runs-on: ubuntu-latest
