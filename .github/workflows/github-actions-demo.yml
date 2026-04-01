@@ -5,6 +5,7 @@ jobs:
   image-build:
     runs-on: ubuntu-latest
     steps: 
+      - uses: actions/checkout@master
       - name: docker build and push
         working-directory: ./test-app
         run: docker build -t test-app .
