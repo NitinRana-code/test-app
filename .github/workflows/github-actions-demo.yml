@@ -4,13 +4,10 @@ on: [push]
 jobs:    
   image-build:
     runs-on: ubuntu-latest
-    steps:
-      - run: cd /home/runner/work/test-app/test-app
-      - run: pwd
-      - run: ls -la /home/runner/work/test-app/test-app
-      - run: ls -la /home/runner/work/test-app
-      - run: ls -la /home/runner/work/
-      - run: docker build -t test-app ${{ github.workspace }}/Dockerfile
+    steps: 
+      - name: docker build and push
+        working-directory: ./test-app
+        run: docker build -t test-app .
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
     
