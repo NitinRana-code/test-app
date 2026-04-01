@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: cd ../../
       - run: pwd
+      - run: ls
       - run: docker build -t test-app .
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
