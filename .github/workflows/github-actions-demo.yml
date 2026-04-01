@@ -7,9 +7,7 @@ jobs:
     steps: 
       - uses: actions/checkout@master
       - run: ls -la;pwd
-      - name: docker build and push
-        working-directory: ./test-app\
-        run: docker build -t test-app .
+      - run: docker build -t test-app .
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
     
