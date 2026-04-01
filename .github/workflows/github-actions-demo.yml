@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt update && sudo apt install git -y
-      - run: git clone -b master https://github.com/NitinRana-code/test-app.git
-      - run: cd test-app
+      # - run: git clone -b master https://github.com/NitinRana-code/test-app.git
+      # - run: cd test-app
       - run: pwd
-      - run: ls
+      - run: ls -larth
       - run: docker build -t test-app .
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
