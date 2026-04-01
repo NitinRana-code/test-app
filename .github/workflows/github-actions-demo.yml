@@ -7,8 +7,8 @@ jobs:
     steps: 
       - uses: actions/checkout@master
       - run: docker login -u docker4nitin -p dockertest123
-      - run: docker build -t docker4nitin:test-app .
-      - run: docker push docker4nitin:test-app 
+      - run: docker build -t docker4nitin/test-app .
+      - run: docker push docker4nitin/test-app 
     
   deploy:
     runs-on: ubuntu-latest
