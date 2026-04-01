@@ -3,10 +3,9 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:    
   image-build:
-    runs-on: ubuntu-latest
-    
+    runs-on: gcr.io/kaniko-project/executor:latest
     steps:
-      - run: docker build -t test-app .
+      - run: docker build -t test-app ../../Dockerfile
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
     
