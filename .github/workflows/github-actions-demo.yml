@@ -5,6 +5,7 @@ jobs:
   image-build:
     runs-on: ubuntu-latest
     steps:
+      - run: pwd
       - run: docker build -t test-app ../../Dockerfile
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
