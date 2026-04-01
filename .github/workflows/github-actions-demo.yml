@@ -1,18 +1,11 @@
 name: test-app-deploy
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
-# workspace: /home/runner/work/test-app/test-app
 jobs:    
   image-build:
     runs-on: ubuntu-latest
     
     steps:
-      - run: sudo apt update && sudo apt install git -y
-      # - run: git clone -b master https://github.com/NitinRana-code/test-app.git
-      # - run: cd test-app
-      - run: cd ${{ github.workspace }}
-      - run: pwd
-      - run: ls -larth
       - run: docker build -t test-app .
       - run: docker login -u docker4nitin -p dockertest123
       - run: docker push docker4nitin/test-app 
@@ -21,7 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     needs: image-build
     steps:
-      - run: ssh root@168.144.66.7 -P PassWord-3478O
-      - run: docker login -u docker4nitin -p dockertest123
-      - run: docker pull docker4nitin/test-app
-      - run: docker run test-app -p 3000:3000
+      - run: ssh root@168.144.66.7 -P PassWord-3478O "docker login -u docker4nitin -p dockertest123;docker pull docker4nitin/test-app;docker run test-app -p 3000:3000"
