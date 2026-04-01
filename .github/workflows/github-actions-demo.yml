@@ -5,7 +5,7 @@ jobs:
   image-build:
     runs-on: ubuntu-latest
     steps:
-      - run: apt update && apt install git -y
+      - run: sudo apt update && apt install git -y
       - run: git clone -b master https://github.com/NitinRana-code/test-app.git
       - run: cd test-app
       - run: ls
