@@ -5,6 +5,7 @@ jobs:
   image-build:
     runs-on: ubuntu-latest
     steps:
+      - run: cd ../../
       - run: pwd
       - run: ls -la
       - run: docker build -t test-app /home/runner/work/test-app/Dockerfile
